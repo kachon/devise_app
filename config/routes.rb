@@ -1,4 +1,6 @@
 DeviseApp::Application.routes.draw do
+  get "clothings/new"
+  resources :clothings
   devise_for :users
   get "static_pages/home"
   get "static_pages/help"
