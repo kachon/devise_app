@@ -1,4 +1,5 @@
 DeviseApp::Application.routes.draw do
+  devise_for :users
   get "static_pages/home"
   get "static_pages/help"
   # The priority is based upon order of creation: first created -> highest priority.
