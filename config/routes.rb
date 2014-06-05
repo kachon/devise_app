@@ -1,7 +1,7 @@
 DeviseApp::Application.routes.draw do
   get "clothings/new"
   resources :clothings
-  devise_for :users
+  devise_for :users, :skip => :registrations
   get "static_pages/home"
   get "static_pages/help"
   # The priority is based upon order of creation: first created -> highest priority.

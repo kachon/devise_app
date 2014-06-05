@@ -3,8 +3,19 @@ class ClothingsController < ApplicationController
   end
 
   def show
-    @clothing = Clothing.find(params[:id])
+    resp = {:status => 'success'}
+    @clothing = Clothing.find_by_id(params[:id])
     #puts "{#params} #{c}"
-    render :json => @clothing
+    
+    if @clothing
+      #resp[:data] = @clothing.to_json( :except => [:created_at, :updated_at] )
+      resp[:data] = @clothing
+    else
+      resp[:status] = "failed"
+      resp[:data] = ""
+    end
+
+    render :json => resp
   end
+
 end
